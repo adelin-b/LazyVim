@@ -1,8 +1,15 @@
 -- variable to use nvim cmp for command line or wilder
-local command_line_completion = "cmp"
 local is_neovide = vim.fn.exists("g:neovide") == 1
 -- command_line_completion = "wilder"
+command_line_completion = "cmp"
 
+-- FIXME: create a bug in lsp when uncommented
+-- Use wilder in neovide because we do not use noice
+-- local command_line_completion = "cmp"
+-- if is_neovide then
+--   command_line_completion = "wilder"
+-- end
+--
 return {
   -- Command line completion
   {
@@ -479,6 +486,7 @@ return {
             },
           },
         },
+
         window = {
           margin = {
             vertical = 0,
@@ -507,5 +515,12 @@ return {
   {
     "SmiteshP/nvim-navic",
     enabled = false, -- slow down and make it lag when j or k in neovide
+  },
+
+  -- Not very usefull as I do not use line number directly
+  {
+    "nacro90/numb.nvim",
+    config = true,
+    enabled = false,
   },
 }

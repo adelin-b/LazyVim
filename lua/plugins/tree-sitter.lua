@@ -148,4 +148,11 @@ return {
       require("nvim-ts-autotag").setup()
     end,
   },
+
+  -- Add action to refactor / toggle
+  {
+    "ckolkey/ts-node-action",
+    dependencies = { "nvim-treesitter" },
+    opts = {},
+  },
 }

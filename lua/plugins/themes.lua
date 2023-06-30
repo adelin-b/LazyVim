@@ -12,6 +12,13 @@ return {
   { "projekt0n/github-nvim-theme" },
   { "catppuccin/nvim" },
   { "ray-x/starry.nvim" },
+  {
+    "AstroNvim/astrotheme",
+    event = "User LoadColorSchemes",
+    opts = {
+      palette = "astrodark",
+    },
+  },
 
   -- Make background transparent
   {

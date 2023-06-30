@@ -29,7 +29,7 @@ return {
   -- },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "jose-elias-alvarez/typescript.nvim" },
+    -- dependencies = { "jose-elias-alvarez/typescript.nvim" },
     opts = {
       -- make sure mason installs the server
       servers = {
@@ -81,13 +81,15 @@ return {
         tsserver = function(_, opts)
           require("lazyvim.util").on_attach(function(client, buffer)
             if client.name == "tsserver" then
-            -- stylua: ignore
-            vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>", { buffer = buffer, desc = "Organize Imports" })
-            -- stylua: ignore
-            vim.keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<CR>", { desc = "Rename File", buffer = buffer })
+              -- stylua: ignore
+              vim.keymap.set("n", "<leader>co", "<cmd>TypescriptOrganizeImports<CR>",
+                { buffer = buffer, desc = "Organize Imports" })
+              -- stylua: ignore
+              vim.keymap.set("n", "<leader>cR", "<cmd>TypescriptRenameFile<CR>",
+                { desc = "Rename File", buffer = buffer })
             end
           end)
-          require("typescript").setup({ server = opts })
+          -- require("typescript").setup({ server = opts })
           return true
         end,
       },
@@ -133,13 +135,13 @@ return {
                 return
               end
               local client = vim.lsp.get_client_by_id(args.data.client_id)
-              require("lsp-inlayhints").on_attach(client, args.buf)
+              require("lsp-inlayhints").on_attach(client, args.buf, false)
             end,
           })
         end,
       },
     },
-    opts = function()
+    opt = function()
       local nls = require("null-ls")
       return {
         root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
@@ -183,6 +185,8 @@ return {
 
           -- Refactoring
           nls.builtins.code_actions.refactoring,
+
+          null_ls.builtins.code_actions.ts_node_action,
         },
       }
     end,

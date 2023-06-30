@@ -6,7 +6,7 @@
 -- remap ; to : in normal and visual mode, not insert mode
 vim.keymap.set({ "n", "v" }, ";", ":", { noremap = true })
 -- disable : in normal and visual mode, not insert mode
-vim.keymap.set({ "n", "v" }, ":", "<nop>", { noremap = true })
+-- vim.keymap.set({ "n", "v" }, ":", "<nop>", { noremap = true })
 
 -- Go to start and end of line with H and L
 vim.keymap.set("", "H", "^")
