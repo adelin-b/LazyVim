@@ -89,7 +89,7 @@ return {
       rainbow = {
         enable = true,
         -- list of languages you want to disable the plugin for
-        disable = { "jsx", "cpp" },
+        -- disable = { "jsx", "cpp" },
         -- Which query to use for finding delimiters
         query = "rainbow-parens",
         -- Highlight the entire buffer all at once
@@ -99,6 +99,9 @@ return {
         enable = true,
         use_virtual_text = true,
         lint_events = { "BufWrite", "CursorHold" },
+      },
+      matchup = {
+        enable = false,
       },
       incremental_selection = {
         enable = true,

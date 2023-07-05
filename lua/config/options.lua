@@ -24,7 +24,8 @@ vim.o.pumblend = 30
 
 vim.opt.autowrite = true -- enable auto write
 vim.o.timeoutlen = 200
-vim.opt.guifont = "FiraCode Nerd Font:h9"
+vim.opt.guifont = { "FiraCode Nerd Font", ":h8" }
+vim.opt.guifont = { "Source Code Pro", ":h9" }
 vim.opt.sidescrolloff = 8 -- Columns of context
 vim.opt.scrolloff = 4 -- Lines of context
 vim.opt.wrap = true -- Line wrap
